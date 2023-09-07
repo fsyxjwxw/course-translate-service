@@ -26,6 +26,7 @@ public class ManagerHandler {
 
         log.info("【内容翻译】开始翻译");
         TranslateResult translate = translateService.translate(strings);
+//        TranslateResult translate = TranslateResult.builder().raw(strings).translate(strings).build();
         log.info("【内容翻译】翻译完毕");
         log.info("【生成文档】开始生成...");
         translate.setFileName(fileName);

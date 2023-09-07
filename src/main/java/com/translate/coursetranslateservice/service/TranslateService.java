@@ -2,7 +2,9 @@ package com.translate.coursetranslateservice.service;
 
 import com.alibaba.fastjson2.JSON;
 import com.translate.coursetranslateservice.baidu.TransApi;
+import com.translate.coursetranslateservice.config.BaseConfig;
 import com.translate.coursetranslateservice.model.BaiduResult;
+import com.translate.coursetranslateservice.model.BaseData;
 import com.translate.coursetranslateservice.model.TranslateResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -15,12 +17,12 @@ import java.util.List;
 @Slf4j
 public class TranslateService {
 
-    private static final String APP_ID = "xx";
-    private static final String SECURITY_KEY = "aa";
+    @Resource
+    BaseData baseData;
 
     public TranslateResult translate(List<String> strings) {
         List<String> translateList = new ArrayList<>();
-        TransApi api = new TransApi(APP_ID, SECURITY_KEY);
+        TransApi api = new TransApi(baseData.getAppId(), baseData.getSecurityKey());
         for (String text: strings){
             log.info("【内容翻译】翻译进行中..."+text);
             try{

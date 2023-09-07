@@ -1,0 +1,11 @@
+server:
+  port: 0213
+
+word:
+  font: 楷体
+  size: 20
+  rowSize: 50
+
+spring:
+  profiles:
+    active: key
